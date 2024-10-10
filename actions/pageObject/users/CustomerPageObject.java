@@ -1,6 +1,8 @@
 package pageObject.users;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import pageUis.users.CustomerPageUi;
 
 public class CustomerPageObject extends SideBarMyAccountPageObject {
@@ -26,4 +28,7 @@ public class CustomerPageObject extends SideBarMyAccountPageObject {
         return getElementAttribute(driver, CustomerPageUi.EMAIL_TEXTBOX, attributeName);
     }
 
+    public void verifyCustomerPageDisplayed() {
+       Assert.assertTrue(isElementDisplayed(driver, CustomerPageUi.CUSTOMER_PAGE_TITLE));
+    }
 }

@@ -44,29 +44,36 @@ public class MyAccount extends BaseTest {
 
         registerPage.clickMyAccountHeaderLink();
         customerPage = PageGenaratorManager.getCustomerPage(driver);
+        customerPage.verifyCustomerPageDisplayed();
 
         customerPage.openDynamicSideBarPage("Downloadable products");
         downloadablePage = PageGenaratorManager.getDownloadablePage(driver);
+        downloadablePage.verifyDownloadablePageDisplayed();
 
         // Downloadable products -> Addresses
         downloadablePage.openDynamicSideBarPage("Addresses");
         addressesPage =  PageGenaratorManager.getAddressesPage(driver);
+        addressesPage.verifyAddressPageDisplayed();
 
         // Addresses -> Reward points
         addressesPage.openDynamicSideBarPage("Reward points");
         rewardPointsPage = PageGenaratorManager.getRewardPointPage(driver);
+        rewardPointsPage.verifyRewardPageDisplayed();
 
         // Reward points -> Customer info
         rewardPointsPage.openDynamicSideBarPage("Customer info");
         customerPage = PageGenaratorManager.getCustomerPage(driver);
+        customerPage.verifyCustomerPageDisplayed();
 
         // Customer info -> Addresses
         customerPage.openDynamicSideBarPage("Addresses");
         addressesPage =  PageGenaratorManager.getAddressesPage(driver);
+        addressesPage.verifyAddressPageDisplayed();
 
         // Addresses -> Downloadable products
         addressesPage.openDynamicSideBarPage("Downloadable products");
         downloadablePage = PageGenaratorManager.getDownloadablePage(driver);
+        downloadablePage.verifyDownloadablePageDisplayed();
     }
 
     @AfterClass

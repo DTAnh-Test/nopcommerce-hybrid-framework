@@ -2,6 +2,8 @@ package pageUis.users;
 
 public class CustomerPageUi {
 
+    public static final String CUSTOMER_PAGE_TITLE = "xpath=//h1[text()='My account - Customer info']";
+
     public static final String FIRST_NAME_TEXTBOX = "id=FirstName";
 
     public static final String LAST_NAME_TEXTBOX = "id=LastName";
