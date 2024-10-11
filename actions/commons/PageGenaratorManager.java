@@ -32,4 +32,8 @@ public class PageGenaratorManager {
     public static RewardPointsPageObject getRewardPointPage(WebDriver driver){
         return new RewardPointsPageObject(driver);
     }
+
+    public static CompareProductsPageObject getCompareProductsPage(WebDriver driver){
+        return new CompareProductsPageObject(driver);
+    }
 }

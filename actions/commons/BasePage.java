@@ -7,8 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObject.users.HomePageObject;
-import pageUis.users.BasePageUi;
 
 import java.time.Duration;
 import java.util.List;
@@ -16,10 +14,6 @@ import java.util.Set;
 
 public class BasePage {
     // Chứa những hàm dùng chung cho cả layer pageObject
-
-    public static BasePage getBasePage() {
-        return new BasePage();
-    }
 
     private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 
@@ -52,27 +46,22 @@ public class BasePage {
     }
 
     public Alert waitForAlertPresence(WebDriver driver) {
-//        return new WebDriverWait(driver, timeout).until(ExpectedConditions.alertIsPresent());
         return new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.alertIsPresent());
     }
 
     public void acceptToAlert(WebDriver driver) {
-        // driver.switchTo().alert().accept();
         waitForAlertPresence(driver).accept();
     }
 
     public void cancelToAlert(WebDriver driver) {
-        // driver.switchTo().alert().dismiss();
         waitForAlertPresence(driver).dismiss();
     }
 
     public String getAlertText(WebDriver driver) {
-        // return driver.switchTo().alert().getText();
         return waitForAlertPresence(driver).getText();
     }
 
     public void sendkeyToAlert(WebDriver driver, String content) {
-        // driver.switchTo().alert().sendKeys(content);
         waitForAlertPresence(driver).sendKeys(content);
     }
 
@@ -386,12 +375,6 @@ public class BasePage {
 
     public void waitForListElementInVisible(WebDriver driver, String locator, String... restParams) {
         new WebDriverWait(driver, Duration.ofSeconds(longTimeout)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(getDynamicLocator(locator, restParams))));
-    }
-
-    public HomePageObject clickUserLogout(WebDriver driver){
-        waitForListElementClickAble(driver, BasePageUi.USER_LOGOUT_LINK);
-        clickToElement(driver, BasePageUi.USER_LOGOUT_LINK);
-        return PageGenaratorManager.getHonePage(driver);
     }
 
     public boolean isPageLoadedSuccess(WebDriver driver) {

@@ -5,10 +5,11 @@ import commons.PageGenaratorManager;
 import org.openqa.selenium.WebDriver;
 import pageUis.users.LoginPageUi;
 
-public class LoginPageObject extends BasePage {
+public class LoginPageObject extends HeaderAndFooterPageObject {
     private WebDriver driver;
 
     public LoginPageObject(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 

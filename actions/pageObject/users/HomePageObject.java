@@ -36,4 +36,16 @@ public class HomePageObject extends HeaderAndFooterPageObject {
         waitForListElementClickAble(driver, HomePageUi.LOG_OUT_LINK);
         clickToElement(driver, HomePageUi.LOG_OUT_LINK);
     }
+
+    public void addProductToCompareList(String... value) {
+        waitForListElementClickAble(driver, HomePageUi.DYNAMIC_FEATURED_PRODUCTS_BUTTON, value);
+        clickToElement(driver, HomePageUi.DYNAMIC_FEATURED_PRODUCTS_BUTTON, value);
+    }
+
+    public CompareProductsPageObject clickToViewCompareResult() {
+        waitForElementVisible(driver, HomePageUi.COMPARE_PRODUCTS_LINK);
+        waitForListElementClickAble(driver, HomePageUi.COMPARE_PRODUCTS_LINK);
+        clickToElement(driver, HomePageUi.COMPARE_PRODUCTS_LINK);
+        return PageGenaratorManager.getCompareProductsPage(driver);
+    }
 }
